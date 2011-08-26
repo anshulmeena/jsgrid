@@ -44,7 +44,7 @@
 			 //obj for the datagrid class
 			 $dataObj = new grid_data();
 			 //html for table with data
-			 $dataObj->html_table_data("schools"); 
+			 $dataObj->html_table_data("schools_old"); 
 			?>
 		</div>
 		<div class="spacer"></div>
