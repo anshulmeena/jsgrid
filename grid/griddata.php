@@ -29,7 +29,7 @@ class grid_data{
 		$i = 1;
 		$db = ADONewConnection('mysql'); 
 	    $db->debug = true; 
-	    $db->Connect('localhost', 'xxxx', 'xxxx', 'xxxx'); 
+	    $db->Connect('localhost', 'x', 'x', 'x'); 
 	    if(!$db)
 	    	die("Database conn failed");
 	    	

@@ -3,7 +3,7 @@
 	require_once '../classes/adodb.inc.php';
 	$db = ADONewConnection('mysql'); 
 	$db->debug = true; 
-    $db->Connect('localhost', 'xxxx', 'xxxx', 'xxxx'); 
+    $db->Connect('localhost', 'x', 'x', 'x'); 
     if(!$db)
     	die("Database conn failed");
 	
