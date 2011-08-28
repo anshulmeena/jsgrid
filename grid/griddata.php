@@ -14,9 +14,6 @@
  * @return ArrayObject
  */
 class grid_data{
-	private $tablename;
-	private $mode;
-	private $query;
 	
 	/**
 	 * html code for tabel functionk
@@ -32,11 +29,12 @@ class grid_data{
 	    $db->Connect('localhost', 'x', 'x', 'x'); 
 	    if(!$db)
 	    	die("Database conn failed");
-	    	
-	    $rs = $db->GetAssoc("select * from $dbtable");
-	    if (!$rs) {
-	    	die("Sql statement error");
-	    } 
+	    $db->debug = 1; 
+	    $db->Connect('localhost', 'anshul', 'hcl123', 'copy_summer_reader'); 
+		if ($db === false) die("failed"); 
+		
+	    $rs = $db->GetAssoc("select * from $dbtable"); 
+	    if ($rs === false) die("Sql statement error");
 	    print ("<div id=\"demo\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\">
 		<thead>
 			<tr>
