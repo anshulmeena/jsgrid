@@ -1,8 +1,11 @@
+<?php
+	require_once 'systemdata.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico" />
+		<link rel="shortcut icon" type="image/ico" href="" title="hi logo icon"/>
 		
 		<title>DataTables example</title>
 		<style type="text/css" title="currentStyle">
@@ -22,12 +25,12 @@
 					"sDom": 'T<"clear">lfrtip',
 					"oTableTools": {
 						"aButtons": [
-								"copy",
+								"pdf",
 								"print",
 								{
 									"sExtends":    "collection",
 									"sButtonText": "Save",
-									"aButtons":    [ "csv", "xls", "pdf" ]
+									"aButtons":    [ "csv", "xls", "copy" ]
 								}
 							],
 						"sSwfPath": "../datatable/extras/TableTools/media/swf/copy_cvs_xls_pdf.swf"
@@ -38,14 +41,14 @@
 	</head>
 	<body id="dt_example">
 		<div id="container">
-			<?php
-			//data source file
-			 require 'griddata.php';
-			 //obj for the datagrid class
-			 $dataObj = new grid_data();
-			 //html for table with data
-			 $dataObj->html_table_data("schools_old"); 
-			?>
+			<div id="demo">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+				<?php
+				 $basic_grid_obj = new consummer_reader();
+				 $basic_grid_obj->htmldata('schools_old') 
+				?>
+				</table>
+			</div>
 		</div>
 		<div class="spacer"></div>
 	</body>

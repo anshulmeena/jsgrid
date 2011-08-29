@@ -1,3 +1,6 @@
+<?php
+	require_once 'systemdata.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
@@ -11,7 +14,6 @@
 		</style>
 
 		<script type="text/javascript" language="javascript" src="../datatable/media/js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="../datatable/media/js/jquery.dataTables.js"></script>
 		<script type="text/javascript" language="javascript" src="../datatable/media/js/jquery.dataTables.js"></script>
 		<script type="text/javascript" language="javascript" src="../datatable/examples/examples_support/jquery.jeditable.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -45,6 +47,8 @@
 				oTable.fnUpdate( sValue, aPos[0], aPos[1] );},
 				"submitdata": function ( value, settings ) {
 					return {
+						"action":'ajax',
+						"table_name":'schools_old',
 						"id": this.parentNode.getAttribute('id'),
 						"row_id": this.parentNode.getAttribute('id'),
 						"column": oTable.fnGetPosition( this )[2]
@@ -57,14 +61,14 @@
 	</head>
 	<body id="dt_example" class="ex_highlight_row">
 		<div id="container">
-			<?php
-			//data source file
-			 require 'griddata.php';
-			 //obj for the datagrid class
-			 $dataObj = new grid_data();
-			 //html for table with data
-			 $dataObj->html_table_data("schools"); 
-			?>
+			<div id="demo">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+				<?php
+				 $basic_grid_obj = new consummer_reader();
+				 $basic_grid_obj->htmldata('schools_old') 
+				?>
+				</table>
+			</div>
 		</div>
 		<div class="spacer"></div>
 	</body>
